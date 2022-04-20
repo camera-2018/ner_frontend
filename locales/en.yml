@@ -1,0 +1,14 @@
+button:
+  about: About
+  back: Back
+  go: GO
+  home: Home
+  toggle_dark: Toggle dark mode
+  toggle_langs: Change languages
+intro:
+  aka: Also known as
+  desc: Named Entity Recognition
+  dynamic-route: Demo of dynamic route
+  hi: Hi, {name}!
+  whats-your-name: Enter text to NER
+not-found: Not found
