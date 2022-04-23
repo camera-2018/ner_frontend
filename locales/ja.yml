@@ -3,6 +3,7 @@ button:
   back: 戻る
   go: 進む
   home: ホーム
+  loading: 読み込み中...
   toggle_dark: ダークモード切り替え
   toggle_langs: 言語切り替え
 intro:
@@ -10,4 +11,8 @@ intro:
   dynamic-route: 動的ルートのデモ
   hi: こんにちは、{name}!
   whats-your-name: NERにテキストを入力してください
+items:
+  name: 名前
+  'null': 名前を認識できない🤔
+  sentences: 文
 not-found: 見つかりませんでした

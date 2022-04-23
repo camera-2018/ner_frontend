@@ -3,6 +3,7 @@ button:
   back: 返回
   go: 确定
   home: 首页
+  loading: 加载中...
   toggle_dark: 切换深色模式
   toggle_langs: 切换语言
 intro:
@@ -11,4 +12,8 @@ intro:
   dynamic-route: 动态路由演示
   hi: 你好，{name}
   whats-your-name: '输入文本运行NER '
+items:
+  name: 名字
+  'null': 无法识别出名字🤔
+  sentences: 句子
 not-found: 未找到页面

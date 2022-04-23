@@ -3,6 +3,7 @@ button:
   back: Back
   go: GO
   home: Home
+  loading: loading...
   toggle_dark: Toggle dark mode
   toggle_langs: Change languages
 intro:
@@ -11,4 +12,8 @@ intro:
   dynamic-route: Demo of dynamic route
   hi: Hi, {name}!
   whats-your-name: Enter text to NER
+items:
+  name: name
+  'null': Can't recognize names🤔
+  sentences: sentences
 not-found: Not found

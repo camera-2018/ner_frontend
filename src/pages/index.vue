@@ -2,14 +2,32 @@
 import { reactive, ref } from 'vue'
 import { post } from '~/utils/post'
 const text = ref()
+const isLoading = ref()
+const isNull = ref(false)
+const displayTable = ref(false)
 const tableText: Array<{ name: string; sentences: string }> = reactive([])
+const changeLoading = async(value: boolean) => {
+  isLoading.value = value
+}
 const goNER = async() => {
-  const url = 'http://127.0.0.1:8000/api/ner'
+  changeLoading(true)
+  const url = 'http://xyxsw.ltd:4254/api/ner'
+  // const url = 'http://127.0.0.1:8000/api/ner'
+  if (!text.value || text.value.replace(/\s+/g, '').length === 0) {
+    await changeLoading(false)
+    alert('请输入文本')
+    return
+  }
   const res = post(url, text.value.replace(/\s+/g, ''))
   tableText.splice(0, tableText.length)
+  if ((await res).data.data.length === 0)
+    isNull.value = true
+  else
+    isNull.value = false
   for (let i = 0; i < (await res).data.data.length; i++)
     tableText.push({ name: (await res).data.data[i].name, sentences: (await res).data.data[i].sentences.join('  |  ') })
-  // console.log(tableText)
+  await changeLoading(false)
+  displayTable.value = true
 }
 
 const { t } = useI18n()
@@ -42,22 +60,27 @@ const { t } = useI18n()
         btn m-3 text-sm
         @click="goNER"
       >
-        {{ t('button.go') }}
+        {{ !isLoading?t('button.go'):t('button.loading') }}
       </button>
     </div>
     <div py-3 />
-    <table b-1 grid place="center">
+    <table v-if="displayTable" b-1 grid place="center">
       <thead>
         <tr>
           <td text="center" w="10vw" b-1>
-            name
+            {{ t('items.name') }}
           </td>
           <td text="center" w="90vw" b-1>
-            sentences
+            {{ t('items.sentences') }}
           </td>
         </tr>
       </thead>
       <tbody>
+        <tr v-if="isNull">
+          <td text="center" w="100vw" b-1>
+            {{ t('items.null') }}
+          </td>
+        </tr>
         <tr v-for="n in tableText" :key="n.name">
           <td text="center" w="10vw" b-1>
             {{ n.name }}
