@@ -2,6 +2,7 @@
 import { reactive, ref } from 'vue'
 import { post } from '~/utils/post'
 const text = ref()
+const isNewApi = ref(true)
 const isLoading = ref()
 const isNull = ref(false)
 const displayTable = ref(false)
@@ -11,8 +12,8 @@ const changeLoading = async(value: boolean) => {
 }
 const goNER = async() => {
   changeLoading(true)
-  const url = 'http://xyxsw.ltd:4254/api/ner'
-  // const url = 'http://127.0.0.1:8000/api/ner'
+
+  const url = isNewApi.value ? 'http://xyxsw.ltd:4254/api/ner' : 'http://xyxsw.ltd:3539/api/ner'
   if (!text.value || text.value.replace(/\s+/g, '').length === 0) {
     await changeLoading(false)
     alert('请输入文本')
@@ -35,32 +36,26 @@ const { t } = useI18n()
 
 <template>
   <div>
-    <div text-xl opacity-75>
+    <div text-2xl opacity-75>
       {{ t('intro.desc') }}
     </div>
-
+    <div py-1 />
+    <div text-xs opacity-75>
+      <span>使用新版api</span>
+      <label>
+        <input v-model="isNewApi" type="checkbox" class="checkbox" @click="isNewApi = !isNewApi">
+      </label>
+    </div>
     <div py-3 />
     <textarea
-      v-model="text"
-      autofocus
-      :placeholder="t('intro.whats-your-name')"
-      :aria-label="t('intro.whats-your-name')"
-      type="text"
-      p="x4 y2"
-      w="80vw"
-      h="300px"
-      text="center"
-      bg="transparent"
-      border="~ rounded gray-200 dark:gray-700"
-      outline="none active:none"
+      v-model="text" autofocus :placeholder="t('intro.whats-your-name')"
+      :aria-label="t('intro.whats-your-name')" type="text" p="x4 y2" w="80vw" h="300px" text="center" bg="transparent"
+      border="~ rounded gray-200 dark:gray-700" outline="none active:none"
     />
     <div py-3 />
     <div>
-      <button
-        btn m-3 text-sm
-        @click="goNER"
-      >
-        {{ !isLoading?t('button.go'):t('button.loading') }}
+      <button btn m-3 text-sm @click="goNER">
+        {{ !isLoading ? t('button.go') : t('button.loading') }}
       </button>
     </div>
     <div py-3 />
@@ -98,3 +93,54 @@ const { t } = useI18n()
 meta:
   layout: home
 </route>
+
+<style>
+label {
+  transform: translateY(-16.5px) translateX(-32px) scale(0.25);
+  width: 100px;
+  height: 50px;
+  border: solid 1px #ddd;
+  background: #ddd;
+  border-radius: 25px;
+  position: fixed;
+}
+label input {
+  visibility: hidden;
+}
+
+label input::after {
+  visibility: visible;
+  content: '';
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #fff;
+  border-radius: 50%;
+  left: 5px;
+  top: 5px;
+  transition: all 0.2s;
+}
+
+label input:checked::after {
+  transform: translateX(50px);
+}
+
+label input::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  visibility: visible;
+  transition: all 0.2s;
+  border-radius: 25px;
+
+}
+
+label input:checked::before {
+  background: rgba(13, 148, 136);
+}
+</style>
