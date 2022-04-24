@@ -25,10 +25,10 @@ const toggleLocales = () => {
     </a>
 
     <RouterLink class="icon-btn mx-2" to="/about" :title="t('button.about')">
-      <div i-carbon-dicom-overlay />
+      <div i-carbon-quotes />
     </RouterLink>
 
-    <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/camera-2018" target="_blank" title="GitHub">
+    <a class="icon-btn mx-2" rel="noreferrer" href="https://github.com/camera-2018/ner_frontend" target="_blank" title="GitHub">
       <div i-carbon-logo-github />
     </a>
   </nav>

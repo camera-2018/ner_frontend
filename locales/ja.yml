@@ -12,7 +12,10 @@ intro:
   hi: こんにちは、{name}!
   whats-your-name: NERにテキストを入力してください
 items:
+  api: 新しいAPIを使用する
   name: 名前
+  newApi: newApi：正確だが遅い
   'null': 名前を認識できない🤔
+  oldApi: oldApi：高速ですが不正確
   sentences: 文
 not-found: 見つかりませんでした

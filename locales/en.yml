@@ -13,7 +13,10 @@ intro:
   hi: Hi, {name}!
   whats-your-name: Enter text to NER
 items:
+  api: Use new API
   name: name
+  newApi: 'newApi: Accurate but Slow'
   'null': Can't recognize names🤔
   sentences: sentences
+  oldApi: 'oldApi: Fast but Imprecise'
 not-found: Not found

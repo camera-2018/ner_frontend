@@ -41,14 +41,14 @@ const { t } = useI18n()
     </div>
     <div py-1 />
     <div text-xs opacity-75>
-      <span>使用新版api</span>
+      <span>{{ t('items.api') }}</span>
       <label>
         <input v-model="isNewApi" type="checkbox" class="checkbox" @click="isNewApi = !isNewApi">
       </label>
     </div>
     <div py-3 />
     <textarea
-      v-model="text" autofocus :placeholder="t('intro.whats-your-name')"
+      v-model="text" autofocus :placeholder="t('intro.whats-your-name')+ '\n' +(isNewApi?t('items.newApi'):t('items.oldApi'))"
       :aria-label="t('intro.whats-your-name')" type="text" p="x4 y2" w="80vw" h="300px" text="center" bg="transparent"
       border="~ rounded gray-200 dark:gray-700" outline="none active:none"
     />
@@ -102,7 +102,7 @@ label {
   border: solid 1px #ddd;
   background: #ddd;
   border-radius: 25px;
-  position: fixed;
+  position: absolute;
 }
 label input {
   visibility: hidden;
