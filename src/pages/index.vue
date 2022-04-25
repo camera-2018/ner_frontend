@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { post } from '~/utils/post'
+import { textExamples } from '~/utils/textexample'
 const text = ref()
 const isNewApi = ref(true)
 const isLoading = ref()
@@ -9,6 +10,15 @@ const displayTable = ref(false)
 const tableText: Array<{ name: string; sentences: string }> = reactive([])
 const changeLoading = async(value: boolean) => {
   isLoading.value = value
+}
+const showRandomText = () => {
+  const random = Math.floor(Math.random() * (4 - 0 + 1)) + 0
+  text.value = textExamples[random]
+  displayTable.value = false
+}
+const cleanText = () => {
+  text.value = ''
+  displayTable.value = false
 }
 const goNER = async() => {
   changeLoading(true)
@@ -54,6 +64,12 @@ const { t } = useI18n()
     />
     <div py-3 />
     <div>
+      <button btn m-3 text-sm @click="cleanText">
+        {{ t('items.clean') }}
+      </button>
+      <button btn m-3 text-sm @click="showRandomText">
+        {{ t('items.random') }}
+      </button>
       <button btn m-3 text-sm @click="goNER">
         {{ !isLoading ? t('button.go') : t('button.loading') }}
       </button>

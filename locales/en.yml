@@ -14,9 +14,11 @@ intro:
   whats-your-name: Enter text to NER
 items:
   api: Use new API
+  clean: Clear
   name: name
   newApi: 'newApi: Accurate but Slow'
   'null': Can't recognize names🤔
-  sentences: sentences
   oldApi: 'oldApi: Fast but Imprecise'
+  random: Random Text
+  sentences: sentences
 not-found: Not found

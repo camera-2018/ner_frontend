@@ -13,9 +13,11 @@ intro:
   whats-your-name: NERにテキストを入力してください
 items:
   api: 新しいAPIを使用する
+  clean: クリア
   name: 名前
   newApi: newApi：正確だが遅い
   'null': 名前を認識できない🤔
   oldApi: oldApi：高速ですが不正確
+  random: ランダムテキスト
   sentences: 文
 not-found: 見つかりませんでした
