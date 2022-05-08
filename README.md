@@ -1,4 +1,4 @@
-### Development
+### 开发
 
 
 ```bash
@@ -6,9 +6,9 @@ pnpm i
 pnpm dev
 ```
 
-### Build
+### 编译
 
-To build the App, run
+要编译，只需要执行以下命令：
 
 ```bash
 pnpm build
