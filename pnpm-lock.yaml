@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@antfu/eslint-config': ^0.20.3
+  '@formkit/auto-animate': 1.0.0-beta.1
   '@iconify-json/carbon': ^1.1.3
   '@intlify/vite-plugin-vue-i18n': ^4.0.0
   '@types/markdown-it-link-attributes': ^3.0.1
@@ -43,6 +44,7 @@ specifiers:
   vue-tsc: ^0.34.6
 
 dependencies:
+  '@formkit/auto-animate': registry.npmmirror.com/@formkit/auto-animate/1.0.0-beta.1_vue@3.2.33
   '@vueuse/core': 8.2.6_vue@3.2.33
   '@vueuse/head': 0.7.6_vue@3.2.33
   axios: registry.npmmirror.com/axios/0.26.1
@@ -7197,6 +7199,23 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  registry.npmmirror.com/@formkit/auto-animate/1.0.0-beta.1_vue@3.2.33:
+    resolution: {integrity: sha512-I3OWOBaPZKSJL4bsooXI8kC3q7bcgibD2oML0P/Lir6MnbvUe/0/7EH8br024juvM/Ulm9C9xGx9CJUQYrOWSA==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@formkit/auto-animate/-/auto-animate-1.0.0-beta.1.tgz}
+    id: registry.npmmirror.com/@formkit/auto-animate/1.0.0-beta.1
+    name: '@formkit/auto-animate'
+    version: 1.0.0-beta.1
+    peerDependencies:
+      react: ^16.8.0
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      vue: 3.2.33
+    dev: false
 
   registry.npmmirror.com/@intlify/bundle-utils/3.1.0_vue-i18n@9.1.9:
     resolution: {integrity: sha512-ghlJ0kR2cCQ8D+poKknC0Xx0ncOt3J3os7CcIAqqIWVF7k6AtGoCDnIru+YzlZcvFRNmP9wEZ7jKliojCdAWNg==, registry: http://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@intlify/bundle-utils/-/bundle-utils-3.1.0.tgz}

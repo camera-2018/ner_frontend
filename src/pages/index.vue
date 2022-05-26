@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
+import { vAutoAnimate } from '@formkit/auto-animate'
 import { post } from '~/utils/post'
 import { textExamples } from '~/utils/textexample'
 const text = ref()
@@ -75,8 +76,8 @@ const { t } = useI18n()
       </button>
     </div>
     <div py-3 />
-    <table v-if="displayTable" b-1 grid place="center">
-      <thead>
+    <table v-if="displayTable" v-auto-animate="{ duration: 300 }" b-1 grid place="center">
+      <thead v-auto-animate="{ duration: 300 }">
         <tr>
           <td text="center" w="10vw" b-1>
             {{ t('items.name') }}
@@ -86,7 +87,7 @@ const { t } = useI18n()
           </td>
         </tr>
       </thead>
-      <tbody>
+      <tbody v-auto-animate="{ duration: 300 }">
         <tr v-if="isNull">
           <td text="center" w="100vw" b-1>
             {{ t('items.null') }}
