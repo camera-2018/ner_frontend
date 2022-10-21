@@ -24,7 +24,7 @@ const cleanText = () => {
 const goNER = async() => {
   changeLoading(true)
 
-  const url = isNewApi.value ? 'http://xyxsw.ltd:3539/api/ner' : 'http://xyxsw.ltd:3539/api/ner'
+  const url = isNewApi.value ? 'http://apiner.xyxsw.ltd/api/ner' : 'http://apiner.xyxsw.ltd/api/ner'
   if (!text.value || text.value.replace(/\s+/g, '').length === 0) {
     await changeLoading(false)
     alert('请输入文本')
